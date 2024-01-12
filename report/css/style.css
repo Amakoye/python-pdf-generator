@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  box-sizing: border-box;
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  --transparent-white: hsla(0, 0%, 100%, 0.75);
+  --very-light-gray: hsl(0, 0%, 95%);
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.525rem;
+}
+
+header {
+  display: flex;
+  flex-direction: "row";
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+p {
+  font-size: 0.425rem;
+}
+
+p > strong {
+  font-weight: 700;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.425rem;
+}
+table td {
+  border: 0.5px solid #999999;
+  padding: 2px;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+.thick__border {
+  border: 2px solid hsl(179, 100%, 13%);
+  margin: 1px 0;
+}
+
+.thin__border {
+  border: 1px solid hsl(179, 100%, 13%);
+}
+
+.company__logo_container {
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+}
+
+.company__logo {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.company__details {
+  text-align: justify;
+  align-self: flex-end;
+  margin-bottom: 0.5em;
+}
+
+.company__details a {
+  text-decoration: none;
+}
+
+.report__title {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.additional__info_text {
+  font-style: italic;
+  margin: 0.5em 0;
+}
+
+.section__heading_container {
+  background-color: hsl(179, 100%, 13%);
+  padding: 0.5em;
+  margin: 0.75em 0;
+  color: hsl(0, 0%, 95%);
+}
+
+.assessed_value {
+  color: hsl(348, 83%, 47%);
+}
+
+.vehicle__images {
+  display: flex;
+  flex-direction: row;
+}
+
+.vehicle__image_container {
+  width: 325px;
+  margin: 5px;
+}
+
+.vehicle__image_container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.border__section_break {
+  border: none;
+  border-top: 3px double hsl(179, 100%, 13%);
+  color: hsl(179, 100%, 13%);
+  overflow: visible;
+  text-align: center;
+}
+
+.border__section_break::after {
+  background: #fff;
+  content: "* * * *";
+  color: hsl(179, 100%, 13%);
+  font-size: 12.5px;
+  font-style: italic;
+  padding: 0 4px;
+  position: relative;
+  top: -7px;
+}
+
+footer {
+  position: fixed;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #333333;
+  font-weight: 600;
+  margin-top: 8em;
+}
+
+.qrcode__container {
+  height: 65px;
+  width: 65px;
+  margin-left: auto;
+  align-self: baseline;
+}
+
+.footer__text {
+  width: 100%;
+}
+
+.qrcode__container img {
+  height: auto;
+  width: 100%;
+}

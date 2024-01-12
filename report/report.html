@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>{{report_title}}</title>
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <div class="company__logo_container">
+        <img class="company__logo" src="{{company_logo}}" alt="Company Logo" />
+      </div>
+      <div class="company__details">
+        <h4>{{valuation_company}}</h4>
+        <p>P.O.Box 12345, Utawala</p>
+        <p>
+          +254 700 000 000 |
+          <a href="#">automobileassessors@mail.com</a>
+        </p>
+      </div>
+    </header>
+    <!-- letter section border -->
+    <div class="thin__border"></div>
+    <div class="thick__border"></div>
+    <!-- end letter section border -->
+    <div class="report__title">
+      <h3>VEHICLE TECHNICAL VALUATION REPORT</h3>
+    </div>
+
+    <!-- report sections begin here -->
+    <section class="additional__info">
+      <table>
+        <tr>
+          <!-- data group -->
+          <td><strong>Corporate Ref. No.</strong></td>
+          <td>{{corporate_ref_no}}</td>
+          <!-- data group -->
+          <td><strong>Customer Email</strong></td>
+          <td>{{customer_email}}</td>
+          <!-- data group -->
+          <td><strong>ID No./Passport</strong></td>
+          <td>{{customer_id_number}}</td>
+          <!-- data group -->
+        </tr>
+        <tr>
+          <td><strong>Box Number</strong></td>
+          <td>{{postal_address}}</td>
+          <!-- data group -->
+          <td><strong>KRA PIN</strong></td>
+          <td>{{kra_pin}}</td>
+          <!-- data group -->
+          <td><strong>Driving License No</strong></td>
+          <td>{{driving_license_number}}</td>
+        </tr>
+        <tr>
+          <!-- data group -->
+          <td><strong>SERIAL No</strong></td>
+          <td>{{serial_number}}</td>
+          <!-- data group -->
+          <td><strong>ISSUED BY</strong></td>
+          <td>{{issued_by}}</td>
+        </tr>
+        <!-- Add more rows/columns as needed -->
+      </table>
+      <p class="additional__info_text">
+        This report is based on a brief external inspection and takes no account
+        of any but most obvious mechanical defects.A brief examination and road
+        test has been carried out on the vehicle described below,the findings
+        are as follows;
+      </p>
+      <table>
+        <tr>
+          <!-- data group -->
+          <td><strong>REGISTRATION NO</strong></td>
+          <td>{{reg_no}}</td>
+          <!-- data group -->
+          <td><strong>CHASSIS NO</strong></td>
+          <td>{{chassis_number}}</td>
+          <!-- data group -->
+          <td><strong>COLOUR</strong></td>
+          <td>{{color}}</td>
+        </tr>
+        <tr>
+          <!-- data group -->
+          <td><strong>NO OF AIRBAGS</strong></td>
+          <td>{{air_bags}}</td>
+          <!-- data group -->
+          <td><strong>YEAR OF MANF.</strong></td>
+          <td>{{yom}}</td>
+          <!-- data group -->
+          <td><strong>MAKE</strong></td>
+          <td>{{make}}</td>
+        </tr>
+        <tr>
+          <td><strong>ENGINE RATING</strong></td>
+          <td>{{engine_rating}}</td>
+          <td><strong>ENGINE NO</strong></td>
+          <td>{{engine_number}}</td>
+          <td>
+            <strong>ODOMETER-CURRENT READING</strong>
+          </td>
+          <td>{{odometer_reading}}</td>
+        </tr>
+        <tr>
+          <td><strong>TYPES OF LIGHTS</strong></td>
+          <td>{{lights}}</td>
+          <td><strong>DATE OF REG.</strong></td>
+          <td>{{reg_date}}</td>
+          <td><strong>TYPE</strong></td>
+          <td>{{type}}</td>
+        </tr>
+        <tr>
+          <td><strong>FUEL TYPE</strong></td>
+          <td>{{fuel_type}}</td>
+        </tr>
+      </table>
+    </section>
+    <section class="coachwork__info">
+      <div class="section__heading_container">
+        <h4>Coachwork</h4>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <strong>Accident Repairs Noted?</strong>
+          </td>
+          <td>
+            {% if repairs_noted %}{{ repairs_noted }}{% else %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Is Paint work Scratched/ Faded/ Dented?</strong>
+          </td>
+          <td>
+            {% if paint_work_scratched_faded_dented %}{{
+            paint_work_scratched_faded_dented }}{% else %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Has the body had a complete respray?</strong>
+          </td>
+          <td>
+            {% if body_complete_respray %}{{ body_complete_respray }}{% else
+            %}N/A{% endif %}
+          </td>
+        </tr>
+        <!--  -->
+        <tr>
+          <td>
+            <strong>Accident Damages noted?</strong>
+          </td>
+          <td>
+            {% if accident_damages_noted %}{{ accident_damages_noted }}{% else
+            %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Are inner wings repaired or damaged?</strong>
+          </td>
+          <td>
+            {% if inner_wings_repaired_or_damaged %}{{
+            inner_wings_repaired_or_damaged }}{% else %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Is Upholstery Torn/faded/worn out?</strong>
+          </td>
+          <td>
+            {% if upholstery_torn_faded_worn_out %}{{
+            upholstery_torn_faded_worn_out }}{% else %}N/A{% endif %}
+          </td>
+        </tr>
+        <!--  -->
+        <tr>
+          <td>
+            <strong>Are roof linings damaged or repaired?</strong>
+          </td>
+          <td>
+            {% if roof_linings_damaged_or_repaired %}{{
+            roof_linings_damaged_or_repaired }}{% else %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Are Bumpers/ Outer Wing repaired?</strong>
+          </td>
+          <td>
+            {% if bumpers_outer_wing_repaired %}{{ bumpers_outer_wing_repaired
+            }}{% else %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Is the Chassis kinked or damaged?</strong>
+          </td>
+          <td>
+            {% if chassis_kinked_or_damaged %}{{ chassis_kinked_or_damaged }}{%
+            else %}N/A{% endif %}
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="vehicle__questions">
+      <div class="section__heading_container">
+        <h4>Mechanical condition</h4>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <strong>Is the parking brake effective?</strong>
+          </td>
+          <td>
+            {% if parking_brake_effective %}{{ parking_brake_effective }}{% else
+            %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Is the automatic/manual gearbox okay?</strong>
+          </td>
+          <td>
+            {% if gearbox_okay %}{{ gearbox_okay }}{% else %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Is the cooling system operating well?</strong>
+          </td>
+          <td>
+            {% if cooling_system_operating_well %}{{
+            cooling_system_operating_well }}{% else %}N/A{% endif %}
+          </td>
+        </tr>
+        <!--  -->
+        <tr>
+          <td>
+            <strong>Is the braking system okay?</strong>
+          </td>
+          <td>
+            {% if braking_system_okay %}{{ braking_system_okay }}{% else %}N/A{%
+            endif %}
+          </td>
+          <td>
+            <strong>Is the steering system okay?</strong>
+          </td>
+          <td>
+            {% if steering_system_okay %}{{ steering_system_okay }}{% else
+            %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Are there signs of fluid or oil leakage?</strong>
+          </td>
+          <td>
+            {% if signs_of_leakage %}{{ signs_of_leakage }}{% else %}N/A{% endif
+            %}
+          </td>
+        </tr>
+        <!--  -->
+        <tr>
+          <td>
+            <strong>Are the drive shafts/cv joints worn out?</strong>
+          </td>
+          <td>
+            {% if drive_shafts_worn_out %}{{ drive_shafts_worn_out }}{% else
+            %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Is the suspension system okay?</strong>
+          </td>
+          <td>
+            {% if suspension_system_okay %}{{ suspension_system_okay }}{% else
+            %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Are engine mountings worn out?</strong>
+          </td>
+          <td>
+            {% if engine_mountings_worn_out %}{{ engine_mountings_worn_out }}{%
+            else %}N/A{% endif %}
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="electrical__questions">
+      <div class="section__heading_container">
+        <h4>Electrical condition</h4>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <strong>Do the indicator lights operate well?</strong>
+          </td>
+          <td>
+            {% if indicator_lights_operate_well %}{{
+            indicator_lights_operate_well }}{% else %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Do the brake lights operate well?</strong>
+          </td>
+          <td>
+            {% if brake_lights_operate_well %}{{ brake_lights_operate_well }}{%
+            else %}N/A{% endif %}
+          </td>
+        </tr>
+        <!--  -->
+        <tr>
+          <td>
+            <strong>Are the wipers operating well?</strong>
+          </td>
+          <td>
+            {% if wipers_operating_well %}{{ wipers_operating_well }}{% else
+            %}N/A{% endif %}
+          </td>
+          <td>
+            <strong>Are the headlights operating well?</strong>
+          </td>
+          <td>
+            {% if headlights_operate_well %}{{ headlights_operate_well }}{% else
+            %}N/A{% endif %}
+          </td>
+        </tr>
+        <!--  -->
+        <tr>
+          <td>
+            <strong>Do the instrument panel lights work well?</strong>
+          </td>
+          <td>
+            {% if instrument_panel_lights_work_well %}{{
+            instrument_panel_lights_work_well }}{% else %}N/A{% endif %}
+          </td>
+        </tr>
+      </table>
+    </section>
+    <!--  -->
+
+    <div class="border__section_break"></div>
+    <!-- others -->
+    <section>
+      <table>
+        <tr>
+          <td><strong>Coachwork notes</strong></td>
+          <td colspan="3">{{coachwork_notes}}</td>
+        </tr>
+        <tr>
+          <td><strong>Electrical notes</strong></td>
+          <td colspan="3">{{electrical_notes}}</td>
+        </tr>
+        <tr>
+          <td><strong>Mechanical notes</strong></td>
+          <td colspan="3">{{mechanical_notes}}</td>
+        </tr>
+        <tr>
+          <td><strong>Extras </strong></td>
+          <td colspan="3">{{extras}}</td>
+        </tr>
+        <tr>
+          <td><strong>AntI theft</strong></td>
+          <td colspan="3">{{anti_theft}}</td>
+        </tr>
+        <tr>
+          <td><strong>Tyres</strong></td>
+          <td colspan="3">{{tyres}}</td>
+        </tr>
+        <tr>
+          <td><strong>General condition</strong></td>
+          <td>{{general_condition}}</td>
+          <td class="assessed_value">
+            <strong>Assessed value</strong>
+          </td>
+          <td class="assessed_value">{{assessed_value}}</td>
+        </tr>
+        <tr>
+          <td><strong>Radio estimate</strong></td>
+          <td>{{radio_estimate}}</td>
+          <td><strong>Windscreen estimate</strong></td>
+          <td>{{windscreen_estimate}}</td>
+        </tr>
+      </table>
+    </section>
+    <div class="border__section_break"></div>
+    <section>
+      <table>
+        <tr>
+          <td><strong>Remarks </strong></td>
+          <td colspan="3">{{remarks}}</td>
+        </tr>
+        <tr>
+          <td><strong>N.B </strong></td>
+          <td colspan="3">{{note}}</td>
+        </tr>
+        <tr>
+          <td><strong>Remedy </strong></td>
+          <td colspan="3">{{remedy}}</td>
+        </tr>
+        <tr>
+          <td><strong>Country of origin</strong></td>
+          <td>{{country_of_origin}}</td>
+          <td><strong>Date of inspection</strong></td>
+          <td>{{inspection_date}}</td>
+        </tr>
+        <tr>
+          <td><strong>Examiner</strong></td>
+          <td>{{valuer}}</td>
+          <td><strong>Destination</strong></td>
+          <td>{{underwriter}}</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Lcation of inspection</strong>
+          </td>
+          <td>{{inspection_location}}</td>
+          <td><strong>Amendment:</strong></td>
+          <td>{{amendment}}</td>
+        </tr>
+        <tr>
+          <td><strong>Signed</strong> {{signature}}</td>
+          <td><strong>Date</strong> {{signature_date}}</td>
+          <td><strong>Receipt No:</strong></td>
+          <td>{{receipt_no}}</td>
+        </tr>
+      </table>
+      <p class="additional__info_text">
+        <strong>NB:</strong>
+        This Report reflects the estimated Market Value of the subject vehicle
+        in its present condition,at the time of valuation.Any future assessment
+        will take into account any changes in the meantime,due to usage e.t.c.
+        This report is based on information on the logbook/importation
+        documents.
+      </p>
+    </section>
+    <!-- report images -->
+    <div class="vehicle__images">
+      {% for image_path in image_paths %}
+      <div class="vehicle__image_container">
+        <img src="{{ image_path }}" alt="Image" />
+      </div>
+      {% if loop.index is divisibleby(2) %}
+    </div>
+    <div class="vehicle__images">{% endif %} {% endfor %}</div>
+    <!-- end report images -->
+
+    <footer>
+      <div class="qrcode__container">
+        <img class="qrcode" src="{{qrcode}}" alt="QR Code" />
+      </div>
+      <div class="footer__text">
+        <p>&copy; {{corporation}}. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

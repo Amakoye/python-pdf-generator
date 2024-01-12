@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{report_title}}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        font-size: 8px;
+        line-height: 1.2;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      h3 {
+        margin: 0;
+      }
+
+      section {
+        margin-bottom: 15px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 5px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 5px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 10px;
+        color: #888;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo,
+      .qrcode {
+        max-width: 100px;
+        max-height: 100px;
+      }
+
+      .additional-info,
+      .vehicle-info,
+      .coachwork-info,
+      .vehicle-questions,
+      .electrical-questions,
+      .images {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      /* .additional-info p, */
+      .vehicle-info,
+      .coachwork-segment,
+      .question-segment,
+      .image-segment {
+        flex: 1 0 48%;
+        /* margin: 2px; */
+        padding: 2px 0px 2px 0px;
+        /* font-size: 8px; */
+        /* border: 1px solid #525050; */
+      }
+
+      /* .coachwork-segment,
+      .question-segment > p {
+        border-bottom: 1px solid #525050;
+      } */
+
+      .image-segment img {
+        width: 100%;
+        height: auto;
+      }
+
+      .coachwork-info,
+      .vehicle-questions {
+        flex-wrap: wrap;
+      }
+
+      .coachwork-segment,
+      .question-segment {
+        flex: 1 0 30%;
+        /* margin: 0 1%; */
+        padding: 5px;
+      }
+      .assesses_value {
+        color: red;
+        /* font-size: 20px; */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="{{company_logo}}" alt="Company Logo" />
+      <div class="title">
+        <h3>{{valuation_company}}</h3>
+        <h4>VEHICLE TECHNICAL VALUATION REPORT</h4>
+      </div>
+      <!--  <img class="qrcode" src="{{qrcode}}" alt="QR Code" /> -->
+    </header>
+
+    <section class="additional-info">
+      <p><strong>Corporate Ref. No.:</strong> {{corporate_ref_no}}</p>
+      <p><strong>Customer Email:</strong> {{customer_email}}</p>
+      <p><strong>ID No./Passport:</strong> {{customer_id_number}}</p>
+      <p><strong>Box Number:</strong> {{postal_address}}</p>
+      <p><strong>KRA PIN:</strong> {{kra_pin}}</p>
+      <p><strong>Driving License No:</strong> {{driving_license_number}}</p>
+      <p><strong>SERIAL No: </strong> {{serial_number}}</p>
+      <p><strong>ISSUED BY: </strong> {{issued_by}}</p>
+      <p><strong>CLIENT NAME:</strong> {{insured_name}}</p>
+      <p><strong>CONTACTS:</strong> {{insured_phone}}</p>
+      <p><strong>INSURER:</strong> {{underwriter}}</p>
+      <p><strong>POLICY NO.:</strong> {{policy_number}}</p>
+      <p><strong>EXPIRY DATE:</strong> {{policy_expiry}}</p>
+    </section>
+
+    <p style="font-style: italic">
+      This report is based on a brief external inspection and takes no account
+      of any but most obvious mechanical defects.A brief examination and road
+      test has been carried out on the vehicle described below,the findings are
+      as follows;
+    </p>
+
+    <section class="vehicle-info">
+      <section>
+        <p><strong>REGISTRATION NO:</strong> {{reg_no}}</p>
+        <p><strong>CHASSIS NO:</strong> {{chassis_number}}</p>
+        <p><strong>COLOUR:</strong> {{color}}</p>
+        <p><strong>NO OF AIRBAGS:</strong> {{air_bags}}</p>
+        <p><strong>YEAR OF MANF.:</strong> {{yom}}</p>
+      </section>
+      <section>
+        <p><strong>MAKE:</strong> {{make}}</p>
+        <p><strong>ENGINE RATING:</strong> {{engine_rating}}</p>
+        <p><strong>ENGINE NO:</strong> {{engine_number}}</p>
+        <p><strong>ODOMETER-CURRENT READING:</strong> {{odometer_reading}}</p>
+      </section>
+      <section>
+        <p><strong>TYPES OF LIGHTS:</strong> {{lights}}</p>
+        <p><strong>DATE OF REG.:</strong> {{reg_date}}</p>
+        <p><strong>TYPE:</strong> {{type}}</p>
+        <p><strong>FUEL TYPE:</strong> {{fuel_type}}</p>
+      </section>
+    </section>
+
+    <h3>Coachwork</h3>
+    <section class="coachwork-info">
+      <div class="coachwork-segment">
+        <p>
+          <strong>Accident Repairs Noted?</strong> {% if repairs_noted %}{{
+          repairs_noted }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Accident Damages noted?</strong> {% if accident_damages_noted
+          %}{{ accident_damages_noted }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are roof linings damaged or repaired?</strong> {% if
+          roof_linings_damaged_or_repaired %}{{ roof_linings_damaged_or_repaired
+          }}{% else %}N/A{% endif %}
+        </p>
+      </div>
+      <div class="coachwork-segment">
+        <p>
+          <strong>Is Paint work Scratched/ Faded/ Dented?</strong> {% if
+          paint_work_scratched_faded_dented %}{{
+          paint_work_scratched_faded_dented }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are inner wings repaired or damaged?</strong> {% if
+          inner_wings_repaired_or_damaged %}{{ inner_wings_repaired_or_damaged
+          }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are Bumpers/ Outer Wing repaired?</strong> {% if
+          bumpers_outer_wing_repaired %}{{ bumpers_outer_wing_repaired }}{% else
+          %}N/A{% endif %}
+        </p>
+      </div>
+      <div class="coachwork-segment">
+        <p>
+          <strong>Has the body had a complete respray?</strong> {% if
+          body_complete_respray %}{{ body_complete_respray }}{% else %}N/A{%
+          endif %}
+        </p>
+        <p>
+          <strong>Is Upholstery Torn/faded/worn out?</strong> {% if
+          upholstery_torn_faded_worn_out %}{{ upholstery_torn_faded_worn_out
+          }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Is the Chassis kinked or damaged?</strong> {% if
+          chassis_kinked_or_damaged %}{{ chassis_kinked_or_damaged }}{% else
+          %}N/A{% endif %}
+        </p>
+      </div>
+    </section>
+
+    <h3>Mechanical Condition</h3>
+    <section class="vehicle-questions">
+      <div class="question-segment">
+        <p>
+          <strong>Is the parking brake effective?</strong> {% if
+          parking_brake_effective %}{{ parking_brake_effective }}{% else %}N/A{%
+          endif %}
+        </p>
+        <p>
+          <strong>Is the braking system okay?</strong> {% if braking_system_okay
+          %}{{ braking_system_okay }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are the drive shafts/cv joints worn out?</strong> {% if
+          drive_shafts_worn_out %}{{ drive_shafts_worn_out }}{% else %}N/A{%
+          endif %}
+        </p>
+      </div>
+      <div class="question-segment">
+        <p>
+          <strong>Is the automatic/manual gearbox okay?</strong> {% if
+          gearbox_okay %}{{ gearbox_okay }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Is the steering system okay?</strong> {% if
+          steering_system_okay %}{{ steering_system_okay }}{% else %}N/A{% endif
+          %}
+        </p>
+        <p>
+          <strong>Is the suspension system okay?</strong> {% if
+          suspension_system_okay %}{{ suspension_system_okay }}{% else %}N/A{%
+          endif %}
+        </p>
+      </div>
+      <div class="question-segment">
+        <p>
+          <strong>Is the cooling system operating well?</strong> {% if
+          cooling_system_operating_well %}{{ cooling_system_operating_well }}{%
+          else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are there signs of fluid or oil leakage?</strong> {% if
+          signs_of_leakage %}{{ signs_of_leakage }}{% else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are engine mountings worn out?</strong> {% if
+          engine_mountings_worn_out %}{{ engine_mountings_worn_out }}{% else
+          %}N/A{% endif %}
+        </p>
+      </div>
+    </section>
+
+    <h3>Electrical Condition</h3>
+    <section class="electrical-questions">
+      <div class="question-segment">
+        <p>
+          <strong>Do the indicator lights operate well?</strong> {% if
+          indicator_lights_operate_well %}{{ indicator_lights_operate_well }}{%
+          else %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are the wipers operating well?</strong> {% if
+          wipers_operating_well %}{{ wipers_operating_well }}{% else %}N/A{%
+          endif %}
+        </p>
+        <p>
+          <strong>Do the instrument panel lights work well?</strong> {% if
+          instrument_panel_lights_work_well %}{{
+          instrument_panel_lights_work_well }}{% else %}N/A{% endif %}
+        </p>
+      </div>
+      <div class="question-segment">
+        <p>
+          <strong>Do the brake lights operate well?</strong> {% if
+          brake_lights_operate_well %}{{ brake_lights_operate_well }}{% else
+          %}N/A{% endif %}
+        </p>
+        <p>
+          <strong>Are the headlights operating well?</strong> {% if
+          headlights_operate_well %}{{ headlights_operate_well }}{% else %}N/A{%
+          endif %}
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <p><strong>COACHWORK NOTES:</strong> {{coachwork_notes}}</p>
+      <p><strong>ELECTRICAL NOTES:</strong> {{electrical_notes}}</p>
+      <p><strong>MECHANICAL NOTES:</strong> {{mechanical_notes}}</p>
+      <p><strong>EXTRAS: </strong> {{extras}}</p>
+      <p><strong>ANTI THEFT:</strong> {{anti_theft}}</p>
+      <p><strong>TYRES:</strong> {{tyres}}</p>
+      <p><strong>GENERAL CONDITION:</strong> {{general_condition}}</p>
+    </section>
+    <p class="assesses_value">
+      <strong>ASSESSED VALUE:</strong> {{assessed_value}}
+    </p>
+    <section class="electrical-questions">
+      <div class="question-segment">
+        <p><strong>Radio Estimate:</strong> {{radio_estimate}}</p>
+      </div>
+      <div class="question-segment">
+        <p><strong>Windscreen Estimate:</strong> {{windscreen_estimate}}</p>
+      </div>
+    </section>
+
+    <p><strong>REMARKS: </strong> {{remarks}}</p>
+    <p><strong>N.B: </strong> {{note}}</p>
+    <p><strong>REMEDY: </strong> {{remedy}}</p>
+    <p><strong>COUNTRY OF ORIGIN:</strong> {{country_of_origin}}</p>
+    <p><strong>DATE OF INSPECTION:</strong> {{inspection_date}}</p>
+    <p><strong>EXAMINER:</strong> {{valuer}}</p>
+    <p><strong>DESTINATION:</strong> {{underwriter}}</p>
+    <p><strong>LOCATION OF INSPECTION:</strong> {{inspection_location}}</p>
+    <p><strong>Amendment:</strong> {{amendment}}</p>
+    <p>
+      <strong>Signed</strong> {{signature}}
+      <strong>Date</strong> {{signature_date}}
+    </p>
+
+    <p><strong>Receipt No:</strong> {{receipt_no}}</p>
+
+    <p style="font-style: italic">
+      NB:This Report reflects the estimated Market Value of the subject vehicle
+      in its present condition,at the time of valuation.Any future assessment
+      will take into account any changes in the meantime,due to usage e.t.c.
+      This report is based on information on the logbook/importation documents.
+    </p>
+
+    <section class="images">
+      {% for image_path in image_paths %}
+      <div class="image-segment">
+        <img src="{{ image_path }}" alt="Image" />
+      </div>
+      {% if loop.index is divisibleby(2) %}
+    </section>
+    <section class="images">{% endif %} {% endfor %}</section>
+
+    <footer>
+      <p>&copy; {{corporation}}. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
