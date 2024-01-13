@@ -44,6 +44,7 @@ footer {
 
 p {
   font-size: 0.425rem;
+  text-align: justify;
 }
 
 p > strong {
@@ -121,8 +122,11 @@ section {
   position: absolute;
   bottom: 0;
   width: 100%;
-  text-align: right;
   font-weight: 600;
+}
+
+.letter__header_date .letter__date {
+  float: right;
 }
 
 .letter__title {
@@ -137,8 +141,29 @@ section {
   color: hsl(0, 0%, 95%);
 }
 
-.voucher__details .valuer__details {
+.voucher__details,
+.valuer__details,
+.valuation__report,
+.notification__recipient_container {
   margin: 1em 0;
+}
+
+.notification__recipient_detail {
+  font-style: italic;
+  /* font-size: 0.675rem; */
+  margin-top: 0.125em;
+}
+
+.report__text_danger {
+  color: hsl(0, 100%, 50%);
+  font-weight: 400;
+  font-size: 0.425rem;
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+.report__text_info {
+  font-style: italic;
 }
 
 .border__section_break {
