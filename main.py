@@ -2,9 +2,9 @@ from weasyprint import HTML, CSS
 from jinja2 import Template
 
 
-template_path = "./letter/index.html"
-css_template_path = "./letter/css/style.css"
-pdf_path = "./letter/sample_letter.pdf"
+template_path = "./britam/index.html"
+css_template_path = "./britam/css/style.css"
+pdf_path = "./britam/sample_letter.pdf"
 
 # Load HTML template
 with open(template_path) as file:

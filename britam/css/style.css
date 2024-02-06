@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  box-sizing: border-box;
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  --transparent-white: hsla(0, 0%, 100%, 0.75);
+  --very-light-gray: hsl(0, 0%, 95%);
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.625rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 0.125em 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: hsl(179, 100%, 13%);
+  margin-top: 8em;
+  padding-top: 80em;
+}
+
+p {
+  font-size: 0.625rem;
+  text-align: justify;
+  margin-top: 0.275em;
+}
+
+p > strong {
+  font-weight: 700;
+}
+
+p > em {
+  color: hsl(179, 100%, 13%);
+  font-weight: 600;
+  margin: 0.75em 0;
+}
+
+ol > li {
+  margin-top: 0.275em;
+  margin-bottom: 0.275em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.625rem;
+  text-align: justify;
+  margin-top: 0.425em;
+}
+table th {
+  border: 0.5px solid #999999;
+  padding: 2px;
+  background-color: hsl(179, 100%, 13%);
+  color: hsl(0, 0%, 95%);
+}
+
+table td {
+  border: 0.5px solid #999999;
+  padding: 2px;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+.thick__border {
+  border: 2px solid hsl(179, 100%, 13%);
+  border-style: solid;
+  margin: 1px 0;
+}
+
+.thin__border {
+  border: 1px solid hsl(179, 100%, 13%);
+  border-style: solid;
+  width: 100%;
+}
+
+.company__logo_container {
+  height: 65px;
+  width: 165px;
+  background-color: beige;
+}
+
+.company__logo {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.letter__date_container {
+  flex-grow: 1;
+  position: relative;
+}
+
+.letter__header_border {
+  position: absolute;
+  top: 48%;
+  right: 0;
+  left: 0;
+  margin-left: 0.625em;
+}
+
+.letter__header_date {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-weight: 600;
+}
+
+.letter__header_date .letter__date {
+  float: right;
+}
+
+.letter__title {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.section__heading_container {
+  background-color: hsl(179, 100%, 13%);
+  padding: 0.5em;
+  margin: 0.75em 0;
+  color: hsl(0, 0%, 95%);
+}
+
+.basic__information,
+.vehicle__details,
+.vehicle__inspection,
+.signatories {
+  margin: 1em 0;
+}
+
+.notification__recipient_detail {
+  font-style: italic;
+  /* font-size: 0.675rem; */
+  margin-top: 0.125em;
+}
+
+.report__text_danger {
+  color: hsl(0, 100%, 50%);
+  font-weight: 400;
+  font-size: 0.425rem;
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+.report__text_info {
+  font-style: italic;
+}
+
+.border__section_break {
+  border: none;
+  border-top: 3px double hsl(179, 100%, 13%);
+  color: hsl(179, 100%, 13%);
+  overflow: visible;
+  text-align: center;
+  margin: 0;
+}
+
+.border__section_break::after {
+  background: #fff;
+  content: "* * * *";
+  color: hsl(179, 100%, 13%);
+  font-size: 0.975rem;
+  font-style: italic;
+  padding: 0 4px;
+  position: relative;
+  top: -7px;
+}
+
+.company__details_container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  width: 100%;
+  margin-top: -1em;
+  margin-bottom: 1em;
+}
+
+.company__detail {
+  display: flex;
+  font-size: 0.825rem;
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.725em;
+  width: 300px;
+}
+
+.company__detail > svg {
+  margin-right: 0.125em;
+  margin-top: 0.125em;
+}
+
+.system__info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.125rem;
+  color: #999999;
+}
+
+.system__info_text {
+  font-style: italic;
+}
