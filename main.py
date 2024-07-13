@@ -4,11 +4,11 @@ import os
 from data import data
 
 
-template_path = "./om_ug/index.html"
-css_template_path = "./om_ug/css/style.css"
-pdf_path = "./om_ug/sample_letter.pdf"
+template_path = "./britam_ug/index.html"
+css_template_path = "./britam_ug/css/style.css"
+pdf_path = "./britam_ug/sample_letter.pdf"
 
-image_path = os.path.abspath("./om_ug/images/uap_holdings.png")
+image_path = os.path.abspath("./britam_ug/images/uap_holdings.png")
 
 
 # Load HTML template

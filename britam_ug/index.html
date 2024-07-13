@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+    <title>letter</title>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+      :root {
+        box-sizing: border-box;
+        --bright-orange: hsl(31, 77%, 52%);
+        --dark-cyan: hsl(184, 100%, 22%);
+        --very-dark-cyan: hsl(207, 67%, 45%);
+        --transparent-white: hsla(0, 0%, 100%, 0.75);
+        --very-light-gray: hsl(0, 0%, 95%);
+      }
+
+      *,
+      ::after,
+      ::before {
+        box-sizing: inherit;
+        margin: 0;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        font-family: "Raleway", sans-serif;
+        font-size: 0.625rem;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        padding: 0.125em 0;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: hsl(207, 67%, 45%);
+        margin-top: 8em;
+        padding-top: 80em;
+      }
+
+      p {
+        font-size: 0.625rem;
+        text-align: justify;
+        margin-top: 0.275em;
+      }
+
+      p > strong {
+        font-weight: 700;
+      }
+
+      p > em {
+        color: hsl(207, 67%, 45%);
+        font-weight: 600;
+        margin: 0.75em 0;
+      }
+
+      ol > li {
+        margin-top: 0.275em;
+        margin-bottom: 0.275em;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.625rem;
+        text-align: justify;
+        margin-top: 0.425em;
+      }
+      table th {
+        border: 0.5px solid #999999;
+        padding: 2px;
+        background-color: hsl(207, 67%, 45%);
+        color: hsl(0, 0%, 95%);
+      }
+
+      table td {
+        border: 0.5px solid #999999;
+        padding: 2px;
+      }
+
+      section {
+        margin-bottom: 2em;
+      }
+
+      .thick__border {
+        border: 2px solid hsl(207, 67%, 45%);
+        border-style: solid;
+        margin: 1px 0;
+      }
+
+      .thin__border {
+        border: 1px solid hsl(207, 67%, 45%);
+        border-style: solid;
+        width: 100%;
+      }
+
+      .company__logo_container {
+        height: 65px;
+        width: 165px;
+      }
+
+      .company__logo {
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      .letter__date_container {
+        flex-grow: 1;
+        position: relative;
+      }
+
+      .letter__header_border {
+        position: absolute;
+        top: 48%;
+        right: 0;
+        left: 0;
+        margin-left: 0.625em;
+      }
+
+      .letter__header_date {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-weight: 600;
+      }
+
+      .letter__header_date .letter__date {
+        float: right;
+      }
+
+      .letter__title {
+        text-align: center;
+        margin: 1em 0;
+      }
+
+      .section__heading_container {
+        background-color: hsl(207, 67%, 45%);
+        padding: 0.5em;
+        margin: 0.75em 0;
+        color: hsl(0, 0%, 95%);
+      }
+
+      .basic__information,
+      .vehicle__details,
+      .asset_images,
+      .vehicle__inspection,
+      .vehicle__accessories,
+      .vehicle__appearance,
+      .general__details,
+      .others .signatories {
+        margin: 1em 0;
+      }
+
+      .vehicle__images {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .vehicle__image_container {
+        width: 325px;
+        margin: 5px;
+      }
+
+      .vehicle__image_container img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .signatories p {
+        margin: 0.5em 0;
+      }
+
+      .notification__recipient_detail {
+        font-style: italic;
+        /* font-size: 0.675rem; */
+        margin-top: 0.125em;
+      }
+
+      .report__text_danger {
+        color: hsl(0, 100%, 50%);
+        font-weight: 400;
+        font-size: 0.425rem;
+        font-style: italic;
+        margin-bottom: 1em;
+      }
+
+      .report__text_info {
+        font-style: italic;
+      }
+
+      .border__section_break {
+        border: none;
+        border-top: 3px double hsl(207, 67%, 45%);
+        color: hsl(207, 67%, 45%);
+        overflow: visible;
+        text-align: center;
+        margin: 0;
+      }
+
+      .border__section_break::after {
+        background: #fff;
+        content: "* * * *";
+        color: hsl(207, 67%, 45%);
+        font-size: 0.975rem;
+        font-style: italic;
+        padding: 0 4px;
+        position: relative;
+        top: -7px;
+      }
+
+      .company__details_container {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5em;
+        width: 100%;
+        margin-top: -1em;
+        margin-bottom: 1em;
+      }
+
+      footer {
+        color: #333333;
+      }
+
+      .footer__text {
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 0.425rem;
+        color: #333;
+      }
+
+      .footer__logo {
+        height: 65px;
+        width: 65px;
+      }
+
+      .qrcode__container {
+        height: 65px;
+        width: 65px;
+        margin-left: auto;
+        align-self: baseline;
+      }
+
+      .qrcode__container img {
+        height: auto;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="company__logo_container">
+        <img
+          class="company__logo"
+          src="https://ke.britam.com/templates/cassiopeia/images/logo.png"
+          alt="Britam"
+        />
+      </div>
+    </header>
+    <div class="thick__border"></div>
+    <div class="thin__border"></div>
+    <div class="letter__title">
+      <h3>MOTOR VEHICLE INSPECTION REPORT FORM</h3>
+    </div>
+    <section class="letter__body">
+      <p>
+        I
+        <strong
+          >........................................................................................</strong
+        >
+        confirm having this <strong>{{inspection_date}}</strong> Inspected the
+        under mentioned Motor Vehicle for insurance purposes at
+        <strong>{{inspection_location}}</strong> Time
+        <strong>{{inspection_time}}</strong>
+      </p>
+      <!-- basic info -->
+      <div class="basic__information">
+        <h4>BASIC INFORMATION</h4>
+        <table>
+          <tr>
+            <td><strong>Name of the Proposer</strong></td>
+            <td>{{name_of_proposer}}</td>
+            <td><strong>Postal Address</strong></td>
+            <td>{{postal_address}}</td>
+          </tr>
+          <tr>
+            <td><strong>Telephone number</strong></td>
+            <td>{{policy_holder_phone}}</td>
+            <td><strong>Business/Profession</strong></td>
+            <td>{{business_profession}}</td>
+          </tr>
+          <tr>
+            <td><strong>Registered Owner</strong></td>
+            <td>{{registered_owner}}</td>
+            <td><strong>Reg'n/Card number</strong></td>
+            <td>{{regn_card_number}}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- Details as seen  -->
+      <div class="vehicle__details">
+        <h4>DETAILS AS SEEN/READ FROM THE VEHICLE:</h4>
+
+        <table>
+          <tr>
+            <td><strong>Registration number</strong></td>
+            <td>{{reg_no}}</td>
+            <td><strong>Make of vehicle</strong></td>
+            <td>{{vehicle_make}}</td>
+          </tr>
+          <tr>
+            <td><strong>Engine number</strong></td>
+            <td>{{engine_number}}</td>
+            <td><strong>Chassis number</strong></td>
+            <td>{{chassis_number}}</td>
+          </tr>
+          <tr>
+            <td><strong>Body type/description</strong></td>
+            <td>{{body_type}}</td>
+            <td><strong>Mileage</strong></td>
+            <td>{{mileage}}</td>
+          </tr>
+          <tr>
+            <td><strong>Attachment</strong></td>
+            <td>{{attachment}}</td>
+            <td><strong>Expiry date of Road License</strong></td>
+            <td>{{driving_license_expiry_date}}</td>
+          </tr>
+          <tr>
+            <td><strong>Year of Manufacture</strong></td>
+            <td>{{yom}}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- vehicle inspection -->
+      <div class="vehicle__inspection">
+        <h4>VEHICLE INSPECTION</h4>
+        <table>
+          <tr>
+            <td><strong>Has it been panel beaten before?</strong></td>
+            <td>{{panel_beating}}</td>
+            <td><strong>Is it intact?</strong></td>
+            <td>{{vehicle_intact}}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- Appearance -->
+      <div class="vehicle__appearance">
+        <h4>APPEARANCE</h4>
+        <table>
+          <tr>
+            <td><strong>Bumpers</strong></td>
+            <td>{{bumpers}}</td>
+            <td><strong>Wheel rims</strong></td>
+            <td>{{wheel_rims}}</td>
+          </tr>
+          <tr>
+            <td><strong>Tyres</strong></td>
+            <td>{{tyres}}</td>
+            <td><strong>Windscreen details</strong></td>
+            <td>{{windscreen_details}}</td>
+          </tr>
+          <tr>
+            <td><strong>Other glasses/mirrors</strong></td>
+            <td>{{other_glasses_mirrors}}</td>
+            <td><strong>Locking system</strong></td>
+            <td>{{locking_system}}</td>
+          </tr>
+          <tr>
+            <td><strong>Paintwork details</strong></td>
+            <td>{{paintwork_details}}</td>
+            <td><strong>Upholstery state</strong></td>
+            <td>{{upholstery_state}}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- accessories -->
+      <div class="vehicle__accessories">
+        <h4>ACCESSORIES</h4>
+        <table>
+          <tr>
+            <td><strong>Radio receiver</strong></td>
+            <td>{{radio_receiver_or_cassette}}</td>
+            <td><strong>Radio cassette</strong></td>
+            <td>{{radio_receiver_or_cassette}}</td>
+          </tr>
+          <tr>
+            <td><strong>Original</strong></td>
+            <td>{{original_special_one_installed}}</td>
+            <td><strong>Special one installed</strong></td>
+            <td>{{original_special_one_installed}}</td>
+          </tr>
+          <tr>
+            <td><strong>Make</strong></td>
+            <td>{{radio_make}}</td>
+            <td><strong>Value</strong></td>
+            <td>{{radio_value}}</td>
+          </tr>
+          <tr>
+            <td><strong>Does the vehicle have a CD player?</strong></td>
+            <td>{{CD_player}}</td>
+            <td><strong>Make</strong></td>
+            <td>{{cd_player_make}}</td>
+          </tr>
+          <tr>
+            <td><strong>Alarm system/anti-theft device installed?</strong></td>
+            <td>{{alarm_system_anti_theft}}</td>
+            <td><strong>Value</strong></td>
+            <td>{{anti_theft_value}}</td>
+          </tr>
+          <tr>
+            <td><strong>Spare parts/and or any other accessories?</strong></td>
+            <td>{{spare_parts}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="general__details">
+        <table>
+          <tr>
+            <td>
+              <strong>What is the General appearance of the vehicle</strong>
+            </td>
+            <td>{{general_appearance}}</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Insured's Estimated Value including accessories:</strong>
+            </td>
+            <td>{{insured_estimated_value}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="others">
+        <p><strong>Remarks:</strong> {{remarks}}</p>
+
+        <div class="signatories">
+          <p>
+            <strong>Signature of the Company representative/Broker: </strong
+            >...........................................................................................................................................................................................................
+          </p>
+          <p>
+            <strong
+              >Signature of Proposer/Insured/Insured's representative: </strong
+            >.........................................................................................................................................................................................
+          </p>
+        </div>
+      </div>
+      <div class="asset_images">
+        <h4>ASSET IMAGES</h4>
+        <div class="vehicle__images">
+          {% for image_path in image_paths %}
+          <div class="vehicle__image_container">
+            <img src="{{ image_path }}" alt="Image" />
+          </div>
+          {% if loop.index is divisibleby(2) %}
+        </div>
+        <div class="vehicle__images">{% endif %} {% endfor %}</div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="border__section_break"></div>
+      <div class="company__details_container">
+        <div class="footer__details">
+          <p class="footer__text">Investment | savings | insurance | banking</p>
+          <div class="qrcode__container">
+            <img class="qrcode" src="{{qrcode}}" alt="" />
+          </div>
+        </div>
+
+        <div class="footer__logo">
+          <img
+            class="company__logo"
+            src="https://ke.britam.com/templates/cassiopeia/images/logo.png"
+            alt="Britam"
+          />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
