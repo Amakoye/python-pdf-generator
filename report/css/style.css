@@ -165,11 +165,11 @@ footer {
   align-self: baseline;
 }
 
-.footer__text {
+.qrcode__container img {
+  height: auto;
   width: 100%;
 }
 
-.qrcode__container img {
-  height: auto;
+.footer__text {
   width: 100%;
 }

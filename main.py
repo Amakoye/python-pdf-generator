@@ -1,10 +1,15 @@
 from weasyprint import HTML, CSS
 from jinja2 import Template
+import os
+from data import data
 
 
-template_path = "./britam/index.html"
-css_template_path = "./britam/css/style.css"
-pdf_path = "./britam/sample_letter.pdf"
+template_path = "./om_ug/index.html"
+css_template_path = "./om_ug/css/style.css"
+pdf_path = "./om_ug/sample_letter.pdf"
+
+image_path = os.path.abspath("./om_ug/images/uap_holdings.png")
+
 
 # Load HTML template
 with open(template_path) as file:
@@ -12,7 +17,7 @@ with open(template_path) as file:
 with open(css_template_path) as file:
     css_content = file.read()
 # Sample data
-data = {}
+# data = {"image_path": image_path}
 
 html_output = template.render(data)
 
