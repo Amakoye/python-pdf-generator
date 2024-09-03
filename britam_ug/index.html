@@ -185,6 +185,28 @@
         margin: 0.5em 0;
       }
 
+      .signatories p {
+        margin: 0.5em 0;
+      }
+
+      .signature {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .signature__container {
+        height: 30px;
+        width: 30px;
+        margin-left: 10px;
+      }
+
+      .signature__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
       .notification__recipient_detail {
         font-style: italic;
         /* font-size: 0.675rem; */
@@ -279,9 +301,7 @@
     <section class="letter__body">
       <p>
         I
-        <strong
-          >........................................................................................</strong
-        >
+        <strong>{{name}}</strong>
         confirm having this <strong>{{inspection_date}}</strong> Inspected the
         under mentioned Motor Vehicle for insurance purposes at
         <strong>{{inspection_location}}</strong> Time
@@ -448,10 +468,25 @@
         <p><strong>Remarks:</strong> {{remarks}}</p>
 
         <div class="signatories">
-          <p>
-            <strong>Signature of the Company representative/Broker: </strong
-            >...........................................................................................................................................................................................................
-          </p>
+          <div class="signature">
+            <p>
+              <strong
+                >Signature of the Company
+                representative/Broker/Valuer/Inspector/:
+              </strong>
+            </p>
+            {% if signature %}
+            <div class="signature__container">
+              <img
+                src="{{signature}}"
+                alt="{{name}}"
+                class="signature__image"
+              />
+            </div>
+            {% else %}
+            <span style="margin-left: 10px">{{name}}</span>
+            {% endif %}
+          </div>
           <p>
             <strong
               >Signature of Proposer/Insured/Insured's representative: </strong

@@ -1,12 +1,13 @@
 from weasyprint import HTML, CSS
 from jinja2 import Template
 import os
-from data import data
+
+# from data import data
 
 
-template_path = "./britam_ug/index.html"
-css_template_path = "./britam_ug/css/style.css"
-pdf_path = "./britam_ug/sample_letter.pdf"
+template_path = "./om_ug/index.html"
+css_template_path = "./om_ug/css/style.css"
+pdf_path = "./om_ug/sample_letter.pdf"
 
 image_path = os.path.abspath("./britam_ug/images/uap_holdings.png")
 
@@ -17,7 +18,28 @@ with open(template_path) as file:
 with open(css_template_path) as file:
     css_content = file.read()
 # Sample data
-# data = {"image_path": image_path}
+data = {
+    "ai_images": [
+        {
+            "original_image": "https://images.pexels.com/photos/24778766/pexels-photo-24778766/free-photo-of-scenic-view-of-mountains-in-iceland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "ai_image": "https://images.pexels.com/photos/24778766/pexels-photo-24778766/free-photo-of-scenic-view-of-mountains-in-iceland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "name": "FrontSide",
+            "damages": {"tailgate": ["scratch"], "back_bumper": ["scratch"]},
+        },
+        {
+            "original_image": "https://images.pexels.com/photos/24778766/pexels-photo-24778766/free-photo-of-scenic-view-of-mountains-in-iceland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "ai_image": "https://images.pexels.com/photos/24778766/pexels-photo-24778766/free-photo-of-scenic-view-of-mountains-in-iceland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "name": "FrontSide",
+            "damages": {"tailgate": ["scratch"], "back_bumper": ["scratch"]},
+        },
+        {
+            "original_image": "https://images.pexels.com/photos/24778766/pexels-photo-24778766/free-photo-of-scenic-view-of-mountains-in-iceland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "ai_image": "https://images.pexels.com/photos/24778766/pexels-photo-24778766/free-photo-of-scenic-view-of-mountains-in-iceland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "name": "FrontSide",
+            "damages": {"tailgate": ["scratch"], "back_bumper": ["scratch"]},
+        },
+    ]
+}
 
 html_output = template.render(data)
 
