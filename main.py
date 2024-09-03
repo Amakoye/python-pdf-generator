@@ -5,11 +5,11 @@ import os
 # from data import data
 
 
-template_path = "./om_ug/index.html"
-css_template_path = "./om_ug/css/style.css"
-pdf_path = "./om_ug/sample_letter.pdf"
+template_path = "./wise/index.html"
+css_template_path = "./wise/css/style.css"
+pdf_path = "./wise/sample_letter.pdf"
 
-image_path = os.path.abspath("./britam_ug/images/uap_holdings.png")
+# image_path = os.path.abspath("./britam_ug/images/uap_holdings.png")
 
 
 # Load HTML template
@@ -19,6 +19,8 @@ with open(css_template_path) as file:
     css_content = file.read()
 # Sample data
 data = {
+    "intermediary_logo": "",
+    "company_logo": "https://www.wiseseguros.co.mz/img/logo.svg",
     "ai_images": [
         {
             "original_image": "https://images.pexels.com/photos/24778766/pexels-photo-24778766/free-photo-of-scenic-view-of-mountains-in-iceland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -38,7 +40,7 @@ data = {
             "name": "FrontSide",
             "damages": {"tailgate": ["scratch"], "back_bumper": ["scratch"]},
         },
-    ]
+    ],
 }
 
 html_output = template.render(data)
