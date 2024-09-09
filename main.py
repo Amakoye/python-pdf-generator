@@ -5,9 +5,9 @@ import os
 # from data import data
 
 
-template_path = "./wise/index.html"
-css_template_path = "./wise/css/style.css"
-pdf_path = "./wise/sample_letter.pdf"
+template_path = "./om_ug/index.html"
+css_template_path = "./om_ug/css/style.css"
+pdf_path = "./om_ug/sample_letter.pdf"
 
 # image_path = os.path.abspath("./britam_ug/images/uap_holdings.png")
 
@@ -19,7 +19,7 @@ with open(css_template_path) as file:
     css_content = file.read()
 # Sample data
 data = {
-    "intermediary_logo": "",
+    "intermediary_logo": "https://www.wiseseguros.co.mz/img/logo.svg",
     "company_logo": "https://www.wiseseguros.co.mz/img/logo.svg",
     "ai_images": [
         {

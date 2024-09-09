@@ -108,6 +108,13 @@
         width: 100%;
       }
 
+      .logos__container {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       .company__logo_container {
         height: 65px;
         width: 165px;
@@ -312,13 +319,40 @@
   </head>
   <body>
     <header>
-      <div class="company__logo_container">
+      {% if company_logo and intermediary_logo %}
+      <div class="logos__container">
+        <div class="company__logo_container">
+          <img
+            class="company__logo"
+            src="{{ company_logo }}"
+            alt="Insurance logo"
+          />
+        </div>
+        <div class="company__logo_container">
+          <img
+            class="intermediary__logo"
+            src="{{ intermediary_logo }}"
+            alt="Intermediary logo"
+          />
+        </div>
+      </div>
+      {% elif company_logo %}
+      <div class="company__logo_container company__logo_center">
         <img
           class="company__logo"
-          src="https://kenyanwallstreet.com/wp-content/uploads/2019/11/uap-old-mutual-600x375.jpg"
-          alt="Old Mutual"
+          src="{{ company_logo }}"
+          alt="Insurance logo"
         />
       </div>
+      {% elif intermediary_logo %}
+      <div class="company__logo_container">
+        <img
+          class="intermediary__logo"
+          src="{{ intermediary_logo }}"
+          alt="Intermediary logo"
+        />
+      </div>
+      {% endif %}
     </header>
     <div class="thick__border"></div>
     <div class="thin__border"></div>

@@ -104,6 +104,13 @@
         width: 100%;
       }
 
+      .logos__container {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       .company__logo_container {
         height: 65px;
         width: 165px;
@@ -160,6 +167,36 @@
       .general__details,
       .others .signatories {
         margin: 1em 0;
+      }
+
+      .ai__image_root {
+        margin-bottom: 2px;
+      }
+
+      .ai__image_container {
+        display: flex;
+        gap: 2em;
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+
+      .ai__image_item {
+        width: 650px;
+        height: 300px;
+      }
+
+      .ai__image {
+        margin-left: 1em;
+      }
+
+      .original__image {
+        margin-right: 1em;
+      }
+
+      .ai__image_item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .vehicle__images {
@@ -261,13 +298,40 @@
 
   <body>
     <header>
-      <div class="company__logo_container">
+      {% if company_logo and intermediary_logo %}
+      <div class="logos__container">
+        <div class="company__logo_container">
+          <img
+            class="company__logo"
+            src="{{ company_logo }}"
+            alt="Insurance logo"
+          />
+        </div>
+        <div class="company__logo_container">
+          <img
+            class="intermediary__logo"
+            src="{{ intermediary_logo }}"
+            alt="Intermediary logo"
+          />
+        </div>
+      </div>
+      {% elif company_logo %}
+      <div class="company__logo_container company__logo_center">
         <img
           class="company__logo"
-          src="{{company_logo}}"
-          alt="Wise Corretores de Seguros"
+          src="{{ company_logo }}"
+          alt="Insurance logo"
         />
       </div>
+      {% elif intermediary_logo %}
+      <div class="company__logo_container">
+        <img
+          class="intermediary__logo"
+          src="{{ intermediary_logo }}"
+          alt="Intermediary logo"
+        />
+      </div>
+      {% endif %}
     </header>
     <main>
       <div class="thick__border"></div>
@@ -534,8 +598,58 @@
         </div>
         <div class="asset_images">
           <h4>IMAGENS DE ATIVOS</h4>
+          {% if ai_images|length != 0 %} {% for image in ai_images %}
+          <div class="ai__image_root">
+            <h4>{{image['name']}}</h4>
+            <div class="ai__image_container">
+              <div class="ai__image_container">
+                <div class="ai__image_item original__image">
+                  <img
+                    src="{{image['original_image']}}"
+                    alt="{{ image['name'] }}"
+                  />
+                </div>
+                <div class="ai__image_item ai__image">
+                  {% if image['ai_image'] %}
+                  <img src="{{image['ai_image']}}" alt="{{ image['name'] }}" />
+                  {% else %}
+                  <h6>No damage detected</h6>
+                  {% endif %}
+                </div>
+                <!-- <div class="ai__image_item damages"></div> -->
+              </div>
+            </div>
+
+            {% if image['ai_image'] %}
+            <div class="damages">
+              <h4>Damages</h4>
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th>Part Name</th>
+                    <th>Damage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for part, damages in image['damages'].items() %}
+                  <tr>
+                    <td>{{ part }}</td>
+                    <td>
+                      {% for damage in damages %} {{ damage }} {% if not
+                      loop.last %}, {% endif %} {% endfor %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% endif %}
+          </div>
+          <hr style="margin-top: 2px; border-style: dashed" />
+          {% endfor %} {% endif %}
+
           <div class="vehicle__images">
-            {% for image_path in image_paths %}
+            {% for image_path in other_images %}
             <div class="vehicle__image_container">
               <img src="{{ image_path }}" alt="Image" />
             </div>
