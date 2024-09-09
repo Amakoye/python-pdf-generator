@@ -41,14 +41,10 @@
       }
 
       footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        /* position: fixed; */
+        display: none;
         text-align: center;
         color: hsl(207, 67%, 45%);
-        margin-top: 8em;
-        padding-top: 80em;
       }
 
       p {
@@ -79,6 +75,7 @@
         text-align: justify;
         margin-top: 0.425em;
       }
+
       table th {
         border: 0.5px solid #999999;
         padding: 2px;
@@ -205,8 +202,8 @@
 
       .border__section_break {
         border: none;
-        border-top: 3px double #00aeef;
-        color: #00aeef;
+        border-top: 3px double #59568e;
+        color: #59568e;
         overflow: visible;
         text-align: center;
         margin: 0;
@@ -215,7 +212,7 @@
       .border__section_break::after {
         background: #fff;
         content: "* * * *";
-        color: #00aeef;
+        color: #59568e;
         font-size: 0.975rem;
         font-style: italic;
         padding: 0 4px;
@@ -261,6 +258,7 @@
       }
     </style>
   </head>
+
   <body>
     <header>
       <div class="company__logo_container">
@@ -271,360 +269,216 @@
         />
       </div>
     </header>
-    <div class="thick__border"></div>
-    <div class="thin__border"></div>
-    <div class="letter__title">
-      <h3>CHECKLIST VISTORIAS</h3>
-    </div>
-    <section class="letter__body">
-      <div class="basic__information">
-        <h4>Dados do cliente</h4>
-        <table>
-          <tr>
-            <td><strong>Nome do titular da apólice</strong></td>
-            <td>{{policy_holder_name}}</td>
-            <td><strong>Número da apólice</strong></td>
-            <td>{{policy_number}}</td>
-          </tr>
-          <tr>
-            <td><strong>Nome do Condutor</strong></td>
-            <td>{{driver_name}}</td>
-            <td><strong>Apelido do Condutor</strong></td>
-            <td>{{driver_surname}}</td>
-          </tr>
-          <tr>
-            <td><strong>Contacto do Condutor</strong></td>
-            <td>{{driver_contact}}</td>
-            <td><strong>Endereço do Condutor</strong></td>
-            <td>{{driver_address}}</td>
-          </tr>
-        </table>
+    <main>
+      <div class="thick__border"></div>
+      <div class="thin__border"></div>
+      <div class="letter__title">
+        <h3>CHECKLIST VISTORIAS</h3>
       </div>
-      <!-- Details as seen  -->
-      <div class="vehicle__details">
-        <h4>Dados do veículo:</h4>
+      <section class="letter__body">
+        <div class="basic__information">
+          <h4>Dados do cliente</h4>
+          <table>
+            <tr>
+              <td><strong>Nome do titular da apólice</strong></td>
+              <td>{{policy_holder_name}}</td>
+              <td><strong>Número da apólice</strong></td>
+              <td>{{policy_number}}</td>
+            </tr>
+            <tr>
+              <td><strong>Nome do Condutor</strong></td>
+              <td>{{driver_name}}</td>
+              <td><strong>Apelido do Condutor</strong></td>
+              <td>{{driver_surname}}</td>
+            </tr>
+            <tr>
+              <td><strong>Contacto do Condutor</strong></td>
+              <td>{{driver_contact}}</td>
+              <td><strong>Endereço do Condutor</strong></td>
+              <td>{{driver_address}}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- Details as seen  -->
+        <div class="vehicle__details">
+          <h4>Dados do veículo:</h4>
 
-        <table>
-          <tr>
-            <td><strong>Valores declarados</strong></td>
-            <td>{{declared_values}}</td>
-            <td><strong>Marca do veículo</strong></td>
-            <td>{{vehicle_make}}</td>
-          </tr>
-          <tr>
-            <td><strong>Modelo do veículo</strong></td>
-            <td>{{vehicle_model}}</td>
-            <td><strong>Número de matrícula</strong></td>
-            <td>{{reg_no}}</td>
-          </tr>
-          <tr>
-            <td><strong>Ano de fabrico</strong></td>
-            <td>{{yom}}</td>
-            <td><strong>Tipo e categoria de carroçaria</strong></td>
-            <td>{{body_type}}</td>
-          </tr>
-          <tr>
-            <td><strong>Número do motor</strong></td>
-            <td>{{engine_no}}</td>
-            <td><strong>Número do chassis</strong></td>
-            <td>{{chassis_no}}</td>
-          </tr>
-          <tr>
-            <td><strong>Quilometragem (KM)</strong></td>
-            <td>{{mileage_km}}</td>
-          </tr>
-        </table>
-      </div>
-      <!-- vehicle inspection -->
-      <div class="vehicle__inspection">
-        <h4>Estado do veículo</h4>
-        <table>
-          <tr>
-            <td><strong>Detalhes da pintura</strong></td>
-            <td>{{paint_work_details}}</td>
-            <td><strong>Pneus</strong></td>
-            <td>{{tyres}}</td>
-            <td><strong>Carroçaria</strong></td>
-            <td>{{bodywork}}</td>
-          </tr>
-        </table>
-      </div>
-      <!-- Appearance -->
-      <div class="vehicle__appearance">
-        <h4>Itens verificados</h4>
-        <table>
-          <tr>
-            <td><strong>Rádio/leitor de CD</strong></td>
-            <td>{{radio_cd_player}}</td>
-            <td><strong>Espelhos retrovisores</strong></td>
-            <td>{{mirrors}}</td>
-          </tr>
-          <tr>
-            <td><strong>Farol dianteiro direito</strong></td>
-            <td>{{front_right_headlights}}</td>
-            <td><strong>Farol dianteiro esquerdo</strong></td>
-            <td>{{front_left_headlight}}</td>
-          </tr>
-          <tr>
-            <td><strong>Farol traseiro direito</strong></td>
-            <td>{{rear_right_headlight}}</td>
-            <td><strong>Farol traseiro esquerdo</strong></td>
-            <td>{{rear_left_headlight}}</td>
-          </tr>
-          <tr>
-            <td><strong>Luz traseira direita</strong></td>
-            <td>{{rear_right_taillight}}</td>
-            <td><strong>Farolim traseiro esquerdo</strong></td>
-            <td>{{rear_left_taillight}}</td>
-          </tr>
+          <table>
+            <tr>
+              <td><strong>Valores Declarados (MT)</strong></td>
+              <td>{{declared_values}}</td>
+              <td><strong>Marca do veículo</strong></td>
+              <td>{{vehicle_make}}</td>
+            </tr>
+            <tr>
+              <td><strong>Modelo do veículo</strong></td>
+              <td>{{vehicle_model}}</td>
+              <td><strong>Matricula</strong></td>
+              <td>{{reg_no}}</td>
+            </tr>
+            <tr>
+              <td>Código do modelo do veículo</td>
+              <td>{{Vehicle_model_code}}</td>
+              <td><strong>Ano de fabrico</strong></td>
+              <td>{{yom}}</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo e categoria de carroçaria</strong></td>
+              <td>{{body_type}}</td>
+              <td><strong>Número do motor</strong></td>
+              <td>{{engine_no}}</td>
+            </tr>
+            <tr>
+              <td><strong>Número do chassis</strong></td>
+              <td>{{chassis_no}}</td>
+              <td><strong>Quilometragem (KM)</strong></td>
+              <td>{{mileage_km}}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- vehicle inspection -->
+        <div class="vehicle__inspection">
+          <h4>Estado do veículo</h4>
+          <table>
+            <tr>
+              <td><strong>Detalhes da pintura</strong></td>
+              <td>{{paint_work_details}}</td>
+              <td><strong>Pneus</strong></td>
+              <td>{{tyres}}</td>
+              <td><strong>Carroçaria</strong></td>
+              <td>{{bodywork}}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- Appearance -->
+        <div class="vehicle__appearance">
+          <h4>Itens verificados</h4>
+          <table>
+            <tr>
+              <td><strong>Rádio/leitor de CD</strong></td>
+              <td>{{radio_cd_player}}</td>
+              <td><strong>Espelhos retrovisores</strong></td>
+              <td>{{mirrors}}</td>
+            </tr>
+            <tr>
+              <td><strong>Farol dianteiro direito</strong></td>
+              <td>{{front_right_headlights}}</td>
+              <td><strong>Farol dianteiro esquerdo</strong></td>
+              <td>{{front_left_headlight}}</td>
+            </tr>
+            <tr>
+              <td><strong>O motor funciona?</strong></td>
+              <td>{{engine_works}}</td>
+              <td><strong>Espelho retrovisor exterior do lado direito</strong></td>
+              <td>{{right_side_exterrior_mirror}}</td>
+            </tr>
+            <tr>
+              <td><strong>Espelho exterior do lado esquerdo</strong></td>
+              <td>{{left_side_exterior_mirror}}</td>
+              <td><strong>Luz traseira direita</strong></td>
+              <td>{{rear_right_taillight}}</td>
+            </tr>
+            <tr>
+              <td><strong>Janela dianteira direita</strong></td>
+              <td>{{front_right_window}}</td>
+              <td><strong>Janela dianteira esquerda</strong></td>
+              <td>{{front_left_window}}</td>
+            </tr>
+            <tr>
+              <td><strong>Janela traseira direita</strong></td>
+              <td>{{rear_right_window}}</td>
+              <td><strong>Janela traseira esquerda</strong></td>
+              <td>{{rear_left_window}}</td>
+            </tr>
+            <tr>
+              <td><strong>Ruído do motor?</strong></td>
+              <td>{{engine_noise}}</td>
+              <td><strong>Tampões das jantes</strong></td>
+              <td>{{hubcaps}}</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo de jantes</strong></td>
+              <td>{{wheels}}</td>
+              <td><strong>Extras</strong></td>
+              <td>{{extras}}</td>
+            </tr>
+              
+          </table>
+        </div>
 
-          <tr>
-            <td><strong>O motor funciona?</strong></td>
-            <td>{{engine_works}}</td>
-            <td><strong>Espelho retrovisor exterior do lado direito</strong></td>
-            <td>{{right_side_exterrior_mirror}}</td>
-          </tr>
+        <div class="general__details">
+          <h4>Local de estacionamento do veículo</h4>
+          <table>
+            <tr>
+              <td>
+                <strong>No interior da residência (Garagem)</strong>
+              </td>
+              <td>{{garage_located}}</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Num parque de estacionamento</strong>
+              </td>
+              <td>{{parking_lot_location}}</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>No interior da residência (pátio)</strong>
+              </td>
+              <td>{{residence_yard_located}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="general__details">
+          <h4>Sistemas de segurança do veículo</h4>
+          <table>
+            <tr>
+              <td>
+                <strong>Alarme</strong>
+              </td>
+              <td>{{alarm}}</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Sistema anti-roubo</strong>
+              </td>
+              <td>{{anti_hijack_system}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="general__details">
+          <h4>Extras (não incluídos na aplicação de fábrica)</h4>
+          <table>
+            <tr>
+              <td>
+                <strong>Sistema de som</strong>
+              </td>
+              <td>{{sound_system}}</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Pintura</strong>
+              </td>
+              <td>{{paint}}</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Condição do interior</strong>
+              </td>
+              <td>{{interior_upholstery}}</td>
+            </tr>
+          </table>
+        </div>
+       
+        <div class="others">
+          <h4>-</h4>
 
-          <tr>
-            <td><strong>Espelho exterior do lado esquerdo</strong></td>
-            <td>{{left_side_exterior_mirror}}</td>
-            <td><strong>Amplificador</strong></td>
-            <td>{{amplifier}}</td>
-          </tr>
+          <p>
+            <strong>Observação da inspecção:</strong> {{inspection_observation}}
+          </p>
 
-          <tr>
-            <td><strong>Fugas de óleo?</strong></td>
-            <td>{{leaks_oil}}</td>
-            <td><strong>Escape</strong></td>
-            <td>{{exhaust}}</td>
-          </tr>
 
-          <tr>
-            <td><strong>Faróis de nevoeiro</strong></td>
-            <td>{{fog_lights}}</td>
-            <td><strong>Janela dianteira direita</strong></td>
-            <td>{{front_right_window}}</td>
-          </tr>
-
-          <tr>
-            <td><strong>Janela dianteira esquerda</strong></td>
-            <td>{{front_left_window}}</td>
-            <td><strong>Janela traseira direita</strong></td>
-            <td>{{rear_right_window}}</td>
-          </tr>
-
-          <tr>
-            <td><strong>Janela traseira esquerda</strong></td>
-            <td>{{rear_left_window}}</td>
-            <td><strong>Vareta de óleo</strong></td>
-            <td>{{oil_dipstick}}</td>
-          </tr>
-
-          <tr>
-            <td><strong>Ruído do motor?</strong></td>
-            <td>{{engine_noise}}</td>
-            <td><strong>Bateria</strong></td>
-            <td>{{battery}}</td>
-          </tr>
-
-          <tr>
-            <td><strong>Calotas</strong></td>
-            <td>{{hubcaps}}</td>
-            <td><strong>Jantes de aluminio</strong></td>
-            <td>{{alloy_wheels}}</td>
-          </tr>
-
-          <tr>
-            <td><strong>Jantes de ferro</strong></td>
-            <td>{{steel_wheels}}</td>
-            <td><strong>Extras</strong></td>
-            <td>{{extras}}</td>
-          </tr>
-
-        </table>
-      </div>
-      <!-- accessories -->
-      <div class="vehicle__accessories">
-        <h4>Dados do condutor</h4>
-        <table>
-          <tr>
-            <td><strong>Nome</strong></td>
-            <td>{{name}}</td>
-            <td><strong>Nacionalidade</strong></td>
-            <td>{{nationality}}</td>
-          </tr>
-          <tr>
-            <td><strong>Genero</strong></td>
-            <td>{{gender}}</td>
-            <td><strong>Negócio/Profissão</strong></td>
-            <td>{{business_profession}}</td>
-          </tr>
-          <tr>
-            <td><strong>Morada</strong></td>
-            <td>{{address}}</td>
-            <td><strong>Número de telefone</strong></td>
-            <td>{{telephone_number}}</td>
-          </tr>
-          <tr>
-            <td><strong>Andar</strong></td>
-            <td>{{floor}}</td>
-            <td><strong>Endereço postal</strong></td>
-            <td>{{postal_address}}</td>
-          </tr>
-          <tr>
-            <td><strong>ACidade</strong></td>
-            <td>{{city}}</td>
-            <td><strong>Província</strong></td>
-            <td>{{province}}</td>
-          </tr>
-          <tr>
-            <td><strong>Concelho Municipal</strong></td>
-            <td>{{municipality}}</td>
-            <td><strong>Número da carta de condução</strong></td>
-            <td>{{driving_license_no}}</td>
-          </tr>
-          <tr>
-            <td><strong>Número de telefone</strong></td>
-            <td>{{telephone_number}}</td>
-            <td><strong>Número de fax</strong></td>
-            <td>{{fax_number}}</td>
-          </tr>
-          <tr>
-            <td><strong>É portador de alguma deficiência? Em caso afirmativo, quais?</strong></td>
-            <td>{{disability_qn}}</td>
-          </tr>
-        </table>
-      </div>
-      <div class="general__details">
-        <h4>Local de estacionamento do veículo</h4>
-        <table>
-          <tr>
-            <td>
-              <strong>No interior da residência (Garagem)</strong>
-            </td>
-            <td>{{garage_located}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Num parque de estacionamento</strong>
-            </td>
-            <td>{{parking_lot_location}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>No interior da residência (pátio)</strong>
-            </td>
-            <td>{{residence_yard_located}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>No exterior da residência/edifício</strong>
-            </td>
-            <td>{{outside_residence}}</td>
-          </tr>
-        </table>
-      </div>
-      <div class="general__details">
-        <h4>Sistemas de segurança do veículo</h4>
-        <table>
-          <tr>
-            <td>
-              <strong>Alarme</strong>
-            </td>
-            <td>{{alarm}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Imobilizador</strong>
-            </td>
-            <td>{{immobilizer}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Bloqueio da engrenagem</strong>
-            </td>
-            <td>{{gear_lock}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Sistema anti-roubo</strong>
-            </td>
-            <td>{{anti_hijack_system}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Rastreador de carrinhos/sistema de localização</strong>
-            </td>
-            <td>{{car_tracker}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Bloqueio do pedal</strong>
-            </td>
-            <td>{{pedal_lock}}</td>
-          </tr>
-        </table>
-      </div>
-      <div class="general__details">
-        <h4>Extras (não incluídos na aplicação de fábrica)</h4>
-        <table>
-          <tr>
-            <td>
-              <strong>Rodas</strong>
-            </td>
-            <td>{{wheels}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Sistema de som</strong>
-            </td>
-            <td>{{sound_system}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Pintura</strong>
-            </td>
-            <td>{{paint}}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Estofos interiores</strong>
-            </td>
-            <td>{{interior_upholstery}}</td>
-          </tr>
-        </table>
-      </div>
-      <div class="basic__information">
-        <h4>Dados da inspeção periódica</h4>
-        <table>
-          <tr>
-            <td><strong>Código</strong></td>
-            <td>{{code}}</td>
-            <td><strong>Morada</strong></td>
-            <td>{{address}}</td>
-          </tr>
-          <tr>
-            <td><strong>Número de matrícula</strong></td>
-            <td>{{reg_no}}</td>
-            <td><strong>AG</strong></td>
-            <td>{{ag}}</td>
-          </tr>
-          <tr>
-            <td><strong>Data da inspeção</strong></td>
-            <td>{{date_of_inspection}}</td>
-            <td><strong>EPróxima inspeção</strong></td>
-            <td>{{next_inspection}}</td>
-          </tr>
-        </table>
-      </div>
-      <div class="others">
-        <h4>Observação e opinião de peritos</h4>
-
-        <p><strong>Inspeção Observação:</strong> {{inspection_observation}}</p>
-
-        <p><strong>Opinião dos peritos:</strong> {{expert_opinion}}</p>
-
-        <!-- <div class="signatories">
+          <!-- <div class="signatories">
           <p>
             <strong>Signature of the Company representative/Broker: </strong
             >...........................................................................................................................................................................................................
@@ -635,20 +489,20 @@
             >.........................................................................................................................................................................................
           </p>
         </div> -->
-      </div>
-      <div class="asset_images">
-        <h4>ASSET IMAGES</h4>
-        <div class="vehicle__images">
-          {% for image_path in image_paths %}
-          <div class="vehicle__image_container">
-            <img src="{{ image_path }}" alt="Image" />
-          </div>
-          {% if loop.index is divisibleby(2) %}
         </div>
-        <div class="vehicle__images">{% endif %} {% endfor %}</div>
-      </div>
-    </section>
-
+        <div class="asset_images">
+          <h4>IMAGENS DE ATIVOS</h4>
+          <div class="vehicle__images">
+            {% for image_path in image_paths %}
+            <div class="vehicle__image_container">
+              <img src="{{ image_path }}" alt="Image" />
+            </div>
+            {% if loop.index is divisibleby(2) %}
+          </div>
+          <div class="vehicle__images">{% endif %} {% endfor %}</div>
+        </div>
+      </section>
+    </main>
     <!-- footer -->
     <footer>
       <div class="border__section_break"></div>
@@ -663,8 +517,8 @@
         <div class="footer__logo">
           <img
             class="company__logo"
-            src="https://www.indicoseguros.co.mz/assets/img/logo.png"
-            alt="Britam"
+            src="https://www.wiseseguros.co.mz/img/logo.svg"
+            alt="Wise Corretores de Seguros"
           />
         </div>
       </div>

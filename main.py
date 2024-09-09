@@ -5,9 +5,9 @@ import os
 # from data import data
 
 
-template_path = "./om_ug/index.html"
-css_template_path = "./om_ug/css/style.css"
-pdf_path = "./om_ug/sample_letter.pdf"
+template_path = "./indico/index.html"
+css_template_path = "./indico/css/style.css"
+pdf_path = "./indico/sample_report.pdf"
 
 # image_path = os.path.abspath("./britam_ug/images/uap_holdings.png")
 
